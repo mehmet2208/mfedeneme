@@ -11,8 +11,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
 
-  //body özelliği ise Consumer widget'i ile dolduruluyor. Consumer widget'i, bir değişiklik dinleyicisi olarak kullanılarak, belirli bir veri modeli (bu durumda MainViewModel)
-  //üzerindeki değişiklikleri algılar ve sadece bu değişikliklerin olduğu durumlarda ilgili arayüzü güncellemeye izin verir.
+  //body özelliği ise Consumer widget'i ile dolduruluyor. Consumer widget'i, bir değişiklik
+  //dinleyicisi olarak kullanılarak, belirli bir veri modeli
+  //üzerindeki değişiklikleri algılar ve sadece bu değişikliklerin olduğu
+  //durumlarda ilgili arayüzü güncellemeye izin verir.
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: _appBarUI(context),
@@ -34,7 +36,6 @@ class HomeScreen extends StatelessWidget {
             Icons.logout,
             color: Colors.black,
           ),
-          // IconButton'a tıklandığında gerçekleşecek işlem.
           onPressed: () {
             // Konsola çıkış mesajını yazdırır.
             print("Ben bu mekandan çıkışşşş yapıyorum");

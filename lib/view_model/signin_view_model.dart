@@ -10,32 +10,39 @@ class SignInViewModel with ChangeNotifier {
 
   void signIn(String email, String password, BuildContext context) async {
     try {
+      // Giriş yapılıyor, bu durumu kontrol etmek için bir print ifadesi.
       print("Giriş yapıyorum");
+
+      // signInWithEmailAndPassword metodu, kullanıcının e-posta ve şifre ile giriş yapmasını sağlar.
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      // Successful login, navigate to HomeScreen
+
+      // Giriş başarılı olduğunda, kullanıcıyı HomeScreen'e yönlendiren Navigator işlemi.
       Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ChangeNotifierProvider(
-              create: (context) => MainViewModel(),
-              child: HomeScreen(),
-            ),
+        context,
+        MaterialPageRoute(
+          builder: (context) => ChangeNotifierProvider(
+            create: (context) => MainViewModel(),
+            child: HomeScreen(),
           ),
-          (route) => false);
+        ),
+        (route) => false,
+      );
     } on FirebaseAuthException catch (e) {
-      // Handle FirebaseAuthException
+      // FirebaseAuthException: FirebaseAuth ile ilgili özel durumlar için bir hata yakalama bloğu.
+      // Bu blok, kullanıcının bulunamadığı veya yanlış şifre girdiği durumları ele alır.
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
       } else {
+        // Diğer hataları yazdırmak için genel bir durum.
         print('Error during sign in: ${e.message}');
       }
     } catch (e) {
-      // Handle other exceptions
+      // Diğer tüm hataları yakalamak için genel bir catch bloğu.
       print('Error: $e');
     }
   }

@@ -9,7 +9,7 @@ class MainViewModel with ChangeNotifier {
 // constructor içinde yer alıyor. sınıfın oluşturulduğu anın hemen ardından çalışacak bir işlemi başlatıyor.
   MainViewModel() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _getWeather('Hatay');
+      _getWeather('Berlin');
     });
   }
 
