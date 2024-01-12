@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "984396041217",
+    "project_id": "mfee-221dd",
+    "storage_bucket": "mfee-221dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984396041217:android:0a6a0c6e15ae57ba63c400",
+        "android_client_info": {
+          "package_name": "com.example.mfe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrLoSYoTEy_aA0-9ThcJEnXN1CXoN2b-o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
