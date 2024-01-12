@@ -8,27 +8,29 @@ import 'package:provider/provider.dart';
 
 class SingInScreen extends StatelessWidget {
   SingInScreen({super.key});
-
+  // Flutter framework'ü içinde kullanılan bir TextEditingController nesnesi.
   final TextEditingController _passwordTextController = TextEditingController();
-
   final TextEditingController _emailTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        // MediaQuery.of(context).size.width ifadesi, MediaQuery sınıfını kullanarak cihazın ekran
+        // boyutlarına erişir. size özelliği, ekranın genişliği ve yüksekliğini belirler
         width: MediaQuery.of(context).size.width,
+        // Ekran yüksekliğini ifade eder.
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              //background rengi
               Colors.grey[600]!, // Başlangıç rengi
               Colors.grey[500]!, // Orta renk
               Colors.grey[600]!, // Bitiş rengi
             ],
           ),
         ),
+        // Dikey yönde sınırsız bir şekilde kaydırmak için kullanılır.
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.fromLTRB(
@@ -50,7 +52,7 @@ class SingInScreen extends StatelessWidget {
                   height: 30,
                 ),
                 _buildSignInButton(context),
-                singUpOption(context)
+                singUpOption(context),
               ],
             ),
           ),
@@ -59,6 +61,8 @@ class SingInScreen extends StatelessWidget {
     );
   }
 
+  // SignInViewModel objesini almayı amaçlar. Bu obje, ChangeNotifier sınıfından türetilmiş bir sınıftır
+  // metodu ve dinleyiciyi bulundurarak bir ViewModel görevi görür.
   Widget _buildSignInButton(BuildContext context) {
     SignInViewModel viewModel = Provider.of(context, listen: false);
     return singInUpButton(context, true, () async {
@@ -71,7 +75,7 @@ class SingInScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have account?",
+        const Text("Don't have an account?",
             style: TextStyle(color: Colors.white70)),
         GestureDetector(
           onTap: () {
@@ -87,7 +91,7 @@ class SingInScreen extends StatelessWidget {
             " Sign Up",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-        )
+        ),
       ],
     );
   }
@@ -106,18 +110,6 @@ class MyColumnWithLottie extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
  Widget _buildLoginButton(BuildContext context) {

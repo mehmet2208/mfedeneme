@@ -5,6 +5,7 @@ import 'package:mfe/view_model/home_view_model.dart';
 import 'package:provider/provider.dart';
 
 class SignInViewModel with ChangeNotifier {
+  //Firebase Authentication servisi ile etkileşimde bulunup kayıt giriş şifre sıfırlama için kullanılır
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   void signIn(String email, String password, BuildContext context) async {
@@ -39,3 +40,7 @@ class SignInViewModel with ChangeNotifier {
     }
   }
 }
+//uygulamanın temel yapısını sağlar ve Firebase kullanarak kullanıcının giriş durumuna bağlı 
+//olarak farklı ekranlara yönlendirilmesini sağlar. ChangeNotifierProvider kullanılarak, 
+//view modelleri ile uygulama içinde durum yönetimi sağlanır. Bu kod, uygulama başlatıldığında
+// kullanıcının durumuna göre ilk görünen sayfayı belirler.
